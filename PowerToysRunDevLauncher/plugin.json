@@ -7,6 +7,6 @@
   "Version": "0.1.0",
   "Language": "csharp",
   "Website": "https://github.com/c-owens/PowerToysRunDevLauncher",
-  "ExecuteFileName": "PowerToysRunDevLauncher.dll",
+  "ExecuteFileName": "PowerToysRunDevLauncher.Plugin.dll",
   "IcoPath": "Images\\rocket.png"
 }

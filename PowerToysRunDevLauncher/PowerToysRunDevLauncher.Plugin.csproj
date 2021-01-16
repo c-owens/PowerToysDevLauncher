@@ -48,8 +48,14 @@
     <ProjectReference Include="..\PowerToys\src\modules\launcher\Wox.Plugin\Wox.Plugin.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Images\rocket.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="powershell -command &quot;Copy-Item '$(TargetDir)\*' '$(ProjectDir)..\PowerToys\x64\$(ConfigurationName)\modules\launcher\Plugins\DevLauncher' -Recurse -Force&quot;" />
+    <Exec Command="(robocopy $(TargetDir) $(ProjectDir)..\PowerToys\x64\$(ConfigurationName)\modules\launcher\Plugins\DevLauncher /MIR) ^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0" />
   </Target>
 
 </Project>
