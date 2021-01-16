@@ -1,0 +1,12 @@
+{
+  "ID": "FA640897A1C84D2796856DBBE3D84886",
+  "ActionKeywords": [ ";" ],
+  "Name": "DevLauncher",
+  "Description": "Indexes and opens source files using configurable rules",
+  "Author": "c-owens",
+  "Version": "0.1.0",
+  "Language": "csharp",
+  "Website": "https://github.com/c-owens/PowerToysRunDevLauncher",
+  "ExecuteFileName": "PowerToysRunDevLauncher.dll",
+  "IcoPath": "Images\\rocket.png"
+}
