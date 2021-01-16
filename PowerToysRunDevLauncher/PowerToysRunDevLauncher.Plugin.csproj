@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Platforms>x64</Platforms>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -45,6 +46,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Lucene.Net" Version="4.8.0-beta00013" />
+    <PackageReference Include="Lucene.Net.Analysis.Common" Version="4.8.0-beta00013" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PowerToys\src\modules\launcher\Wox.Plugin\Wox.Plugin.csproj" />
   </ItemGroup>
 
@@ -55,7 +61,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="(robocopy $(TargetDir) $(ProjectDir)..\PowerToys\x64\$(ConfigurationName)\modules\launcher\Plugins\DevLauncher /MIR) ^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0" />
+    <Exec Command="(robocopy $(TargetDir) $(ProjectDir)..\PowerToys\x64\$(ConfigurationName)\modules\launcher\Plugins\DevLauncher /MIR /XD index) ^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0" />
   </Target>
 
 </Project>
