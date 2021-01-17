@@ -5,6 +5,7 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerToysRunDevLauncher.Plugin", "PowerToysRunDevLauncher\PowerToysRunDevLauncher.Plugin.csproj", "{3AB84180-87C1-4271-8ADB-FD2D6C63CDEE}"
 	ProjectSection(ProjectDependencies) = postProject
+		{BD664F2F-44A3-4423-B778-23FF8D104254} = {BD664F2F-44A3-4423-B778-23FF8D104254}
 		{8451ECDD-2EA4-4966-BB0A-7BBC40138E80} = {8451ECDD-2EA4-4966-BB0A-7BBC40138E80}
 	EndProjectSection
 EndProject
@@ -18,6 +19,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagedTelemetry", "PowerToys\src\common\ManagedTelemetry\Telemetry\ManagedTelemetry.csproj", "{6AC3040E-8510-423D-BF3D-BED1A76D6BD5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CA11CEEC-23C1-4717-8535-26E4771FCC05}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.PowerToys.Settings.UI.Library", "PowerToys\src\settings-ui\Microsoft.PowerToys.Settings.UI.Library\Microsoft.PowerToys.Settings.UI.Library.csproj", "{D1A91888-388F-4E6C-8048-0EEBA338D7DB}"
 EndProject
@@ -33,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerLauncher", "PowerToys\
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerToys", "PowerToys", "{2BD7D199-BD60-4657-AD3E-5207928954BD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerToysRunDevLauncher.Dynamic", "PowerToysRunDevLauncher.Dynamic\PowerToysRunDevLauncher.Dynamic.csproj", "{BD664F2F-44A3-4423-B778-23FF8D104254}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,6 +82,10 @@ Global
 		{7BADD8F9-E313-4E3C-937C-A4BADFBC6519}.Debug|x64.Build.0 = Debug|x64
 		{7BADD8F9-E313-4E3C-937C-A4BADFBC6519}.Release|x64.ActiveCfg = Release|x64
 		{7BADD8F9-E313-4E3C-937C-A4BADFBC6519}.Release|x64.Build.0 = Release|x64
+		{BD664F2F-44A3-4423-B778-23FF8D104254}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BD664F2F-44A3-4423-B778-23FF8D104254}.Debug|x64.Build.0 = Debug|Any CPU
+		{BD664F2F-44A3-4423-B778-23FF8D104254}.Release|x64.ActiveCfg = Release|Any CPU
+		{BD664F2F-44A3-4423-B778-23FF8D104254}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
