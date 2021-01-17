@@ -1,4 +1,4 @@
-namespace PowerToysRunDevLauncher.Plugin
+namespace PowerToysDevLauncher.Plugin
 {
     using System;
     using System.Collections.Generic;
@@ -41,7 +41,7 @@ namespace PowerToysRunDevLauncher.Plugin
 			if( m_dynamicAssembly != null )
 				return m_dynamicAssembly;
 
-			string dynamicDllPath = Path.Combine( m_pluginDirectory, "PowerToysRunDevLauncher.Dynamic.dll" );
+			string dynamicDllPath = Path.Combine( m_pluginDirectory, "PowerToysDevLauncher.Dynamic.dll" );
 			m_dynamicAssembly = Assembly.LoadFrom( dynamicDllPath );
 			return m_dynamicAssembly;
 		}

@@ -66,7 +66,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /I /Y $(ProjectDir)..\PowerToysRunDevLauncher.Dynamic\bin\$(ConfigurationName)\netcoreapp3.1\ $(TargetDir)&#xD;&#xA;(robocopy $(TargetDir) $(ProjectDir)..\PowerToys\x64\$(ConfigurationName)\modules\launcher\Plugins\DevLauncher /MIR /XD index) ^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0" />
+    <Exec Command="xcopy /I /Y $(ProjectDir)..\PowerToysDevLauncher.Dynamic\bin\$(ConfigurationName)\netcoreapp3.1\ $(TargetDir)&#xD;&#xA;(robocopy $(TargetDir) $(ProjectDir)..\PowerToys\x64\$(ConfigurationName)\modules\launcher\Plugins\DevLauncher /MIR /XD index) ^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0" />
   </Target>
 
 </Project>

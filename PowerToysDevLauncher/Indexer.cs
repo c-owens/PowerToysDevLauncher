@@ -1,4 +1,4 @@
-namespace PowerToysRunDevLauncher.Plugin
+namespace PowerToysDevLauncher.Plugin
 {
     using System;
     using System.IO.Abstractions;

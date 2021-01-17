@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerToysRunDevLauncher.Plugin", "PowerToysRunDevLauncher\PowerToysRunDevLauncher.Plugin.csproj", "{3AB84180-87C1-4271-8ADB-FD2D6C63CDEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerToysDevLauncher.Plugin", "PowerToysDevLauncher\PowerToysDevLauncher.Plugin.csproj", "{3AB84180-87C1-4271-8ADB-FD2D6C63CDEE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{BD664F2F-44A3-4423-B778-23FF8D104254} = {BD664F2F-44A3-4423-B778-23FF8D104254}
 		{8451ECDD-2EA4-4966-BB0A-7BBC40138E80} = {8451ECDD-2EA4-4966-BB0A-7BBC40138E80}
@@ -38,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerLauncher", "PowerToys\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerToys", "PowerToys", "{2BD7D199-BD60-4657-AD3E-5207928954BD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerToysRunDevLauncher.Dynamic", "PowerToysRunDevLauncher.Dynamic\PowerToysRunDevLauncher.Dynamic.csproj", "{BD664F2F-44A3-4423-B778-23FF8D104254}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerToysDevLauncher.Dynamic", "PowerToysDevLauncher.Dynamic\PowerToysDevLauncher.Dynamic.csproj", "{BD664F2F-44A3-4423-B778-23FF8D104254}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

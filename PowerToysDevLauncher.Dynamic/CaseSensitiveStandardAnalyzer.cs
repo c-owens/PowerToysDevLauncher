@@ -1,13 +1,13 @@
-namespace PowerToysRunDevLauncher.Lucene
+namespace PowerToysDevLauncher.Dynamic
 {
     using System.IO;
-    using global::Lucene.Net.Analysis;
-    using global::Lucene.Net.Analysis.Core;
-    using global::Lucene.Net.Analysis.Standard;
-    using global::Lucene.Net.Util;
+    using Lucene.Net.Analysis;
+    using Lucene.Net.Analysis.Core;
+    using Lucene.Net.Analysis.Standard;
+    using Lucene.Net.Util;
 
     /// <summary>
-    /// This class is separated into a different assmbly so that it can be loaded via reflection after PowerToysRunDevLauncher.Plugin.Main
+    /// This class is separated into a different assmbly so that it can be loaded via reflection after PowerToysDevLauncher.Plugin.Main
     /// is initialized. This is required because the powertoys launcher currently has no support for external plugins, so in order to inject
     /// our plugin's dependent assemblies into the process (specifically Lucene.net here) we have to hook the AssemblyResolve event in the plugin's
     /// constructor. If this class is part of the plugin assembly then when it's loaded by the launcher Lucene.Net.Analysis.Analyzer has to be resolved
