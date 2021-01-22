@@ -41,7 +41,8 @@ namespace PowerToysDevLauncher.Plugin
 			if( m_dynamicAssembly != null )
 				return m_dynamicAssembly;
 
-			string dynamicDllPath = Path.Combine( m_pluginDirectory, "PowerToysDevLauncher.Dynamic.dll" );
+            string pluginDirectory = Path.GetDirectoryName( Assembly.GetExecutingAssembly().Location );
+            string dynamicDllPath = Path.Combine( pluginDirectory, "PowerToysDevLauncher.Dynamic.dll" );
 			m_dynamicAssembly = Assembly.LoadFrom( dynamicDllPath );
 			return m_dynamicAssembly;
 		}

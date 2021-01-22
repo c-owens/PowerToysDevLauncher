@@ -1,7 +1,6 @@
 namespace PowerToysDevLauncher.Plugin
 {
     using System;
-    using System.IO.Abstractions;
     using System.Reflection;
     using Lucene.Net.Store;
     using Lucene.Net.Util;
@@ -15,14 +14,14 @@ namespace PowerToysDevLauncher.Plugin
     using Lucene.Net.Analysis;
     using System.IO;
 
-    internal class IndexItem
+    public class IndexItem
 	{
 		public string Name { get; set; }
 		public string Path { get; set; }
 		public int Score { get; set; }
 	}
 
-	internal class Indexer : IDisposable
+	public class Indexer : IDisposable
 	{
 		public Indexer( Settings settings )
 		{
@@ -30,21 +29,12 @@ namespace PowerToysDevLauncher.Plugin
 			SetupLuceneIndex();
 		}
 
-		private static string GetIndexPath()
-		{
-			string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-			var uri = new UriBuilder( codeBase );
-			string path = Uri.UnescapeDataString( uri.Path );
-			return Path.Combine( Path.GetDirectoryName( path ), "index" );
-		}
-
 		private void SetupLuceneIndex()
 		{
-			string indexPath = GetIndexPath();
-			if( !Directory.Exists( indexPath ) )
-				Directory.CreateDirectory( indexPath );
+			if( !Utilities.Directory.Exists( m_settings.IndexPath ) )
+				Utilities.Directory.CreateDirectory( m_settings.IndexPath );
 
-			m_directory = FSDirectory.Open( indexPath );
+			m_directory = FSDirectory.Open( m_settings.IndexPath );
 			if( m_settings.CaseSensitive )
 			{
 				// This is some gross junk we need to delay load a class that uses something from Lucene.net as its base class.
@@ -60,8 +50,11 @@ namespace PowerToysDevLauncher.Plugin
 			}
 		}
 
-		public void Rebuild()
+		public void Rebuild( Action<string> output = null )
 		{
+            if( output == null )
+                output = s => Debug.WriteLine( s );
+
             var config = new IndexWriterConfig( AppLuceneVersion, m_analyzer ) { OpenMode = OpenMode.CREATE };
             using( var writer = new IndexWriter( m_directory, config ) )
 			{
@@ -70,14 +63,15 @@ namespace PowerToysDevLauncher.Plugin
 					string toIndex = item.Key;
 					List<string> extensions = item.Value;
 
-					Debug.WriteLine( $"Indexing files under {toIndex}..." );
-					foreach( string file in Directory.GetFiles( toIndex, "*.*", SearchOption.AllDirectories ).Where( p => extensions.Contains( Path.GetExtension( p ) ) ) )
+                    string extensionsStr = string.Join( ", ", extensions );
+                    output( $"Indexing files under {toIndex} matching the extensions {extensionsStr}" );
+					foreach( string file in Utilities.Directory.GetFiles( toIndex, "*.*", SearchOption.AllDirectories ).Where( p => extensions.Contains( Path.GetExtension( p ) ) ) )
 					{
 						string lower = file.ToLower();
 						if( m_settings.IgnorePatterns.Any( pattern => lower.Contains( pattern ) ) )
 							continue;
 
-						Debug.WriteLine( $"Indexing {file}" );
+						output( $"Indexing {file}" );
 						string name = Path.GetFileNameWithoutExtension( file );
 						string extension = Path.GetExtension( file );
 						string content = File.ReadAllText( file );
@@ -150,10 +144,6 @@ namespace PowerToysDevLauncher.Plugin
 		private FSDirectory m_directory;
 		private Analyzer m_analyzer;
 		private readonly Settings m_settings;
-		private static readonly IFileSystem FileSystem = new FileSystem();
-		private static readonly IPath Path = FileSystem.Path;
-		private static readonly IFile File = FileSystem.File;
-		private static readonly IDirectory Directory = FileSystem.Directory;
 		private const LuceneVersion AppLuceneVersion = LuceneVersion.LUCENE_48;
 	}
 }

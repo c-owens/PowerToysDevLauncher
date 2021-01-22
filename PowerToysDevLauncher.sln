@@ -42,6 +42,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerToys", "PowerToys", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerToysDevLauncher.Dynamic", "PowerToysDevLauncher.Dynamic\PowerToysDevLauncher.Dynamic.csproj", "{BD664F2F-44A3-4423-B778-23FF8D104254}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerToysDevLauncher.Indexer", "PowerToysDevLauncher.Indexer\PowerToysDevLauncher.Indexer.csproj", "{B01AB48E-17A3-4DA0-BC3E-FBEF0D9F4E7B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BD664F2F-44A3-4423-B778-23FF8D104254} = {BD664F2F-44A3-4423-B778-23FF8D104254}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -88,6 +93,10 @@ Global
 		{BD664F2F-44A3-4423-B778-23FF8D104254}.Debug|x64.Build.0 = Debug|Any CPU
 		{BD664F2F-44A3-4423-B778-23FF8D104254}.Release|x64.ActiveCfg = Release|Any CPU
 		{BD664F2F-44A3-4423-B778-23FF8D104254}.Release|x64.Build.0 = Release|Any CPU
+		{B01AB48E-17A3-4DA0-BC3E-FBEF0D9F4E7B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B01AB48E-17A3-4DA0-BC3E-FBEF0D9F4E7B}.Debug|x64.Build.0 = Debug|Any CPU
+		{B01AB48E-17A3-4DA0-BC3E-FBEF0D9F4E7B}.Release|x64.ActiveCfg = Release|Any CPU
+		{B01AB48E-17A3-4DA0-BC3E-FBEF0D9F4E7B}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
